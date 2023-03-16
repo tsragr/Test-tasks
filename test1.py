@@ -7,8 +7,8 @@ def check_relation(net, first, second, visited=tuple()):
     if res:
         if second in res:
             return True
-        for el in res:
-            return check_relation(net, el, second, tuple(visited))
+        answer = any([check_relation(net, el, second, tuple(visited)) for el in res])
+        return answer
     else:
         return False
 
